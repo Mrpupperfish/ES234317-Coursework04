@@ -12,6 +12,48 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        /*
+        System.out.println("Hello World!");
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.addAll(Arrays.asList(67, 29, 115, 84, 33, 71, 90));
+        collectionMystery9(q, 50);   
+        */
+
+        /*
+        Stack<Integer> s = new Stack<Integer>();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        System.out.println(s);
+        s.pop();
+        System.out.println(s);
+        s.push(4);
+        System.out.println(s);
+         */
+        /*
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        System.out.println(q);
+        q.remove();
+        System.out.println(q);
+        q.add(4);
+        System.out.println(q);
+         */
+        
+
+        /*
+        ArrayList<Integer> l = new ArrayList<Integer>();
+        Integer [] a = {0, 16, 9, 1, 64, 25, 25, 14, 0};
+
+        l.addAll(Arrays.asList(a));
+        System.out.println(l);
+        collectionMystery4(l);
+        */
+
+        
+
         System.out.println("Problem Test Case 1:");
         Integer [] a = {1, 3, 1, 4, 3, 7, -2, 0, 7, -2, -2, 1};
         ArrayList<Integer> v = new ArrayList<Integer> (Arrays.asList(a));
@@ -52,13 +94,31 @@ public class Main {
     public static Set<Integer> twice(List<Integer> l){
         Set<Integer> s = new TreeSet<Integer>();
         //complete your code here
+        for(int i=0;i<l.size();i++){
+            int count=0;
+            for(int j=0;j<l.size();j++){
+                if(l.get(i)==l.get(j)){
+                    count++;
+                }
+            }
+            if(count==2){
+                s.add(l.get(i));
+            }
+        }   
+
         return s;
     }
     
     public static boolean  hasDuplicateValue(Map<String,String> m){
         boolean s=false;
         //complete your code here
-        
+        Set<String> values = new HashSet<String>();
+        values.addAll(m.values());
+        if(values.size()<m.size()){
+            s=true;
+        }   
+
+    
         return s;
     }
     
@@ -68,4 +128,37 @@ public class Main {
         
         return s;
     }
+    
+
+    public static void collectionMystery4(ArrayList<Integer> v) {
+    for (int i = 1; i < v.size(); i += 2) {
+        if (v.get(i - 1) >= v.get(i)) {
+            v.remove(i);
+            v.add(0, 0);
+        }
+    }
+    System.out.println(v);
+    }
+
+    public static void collectionMystery9(Queue<Integer> queue, int p) {
+    Stack<Integer> stack = new Stack<Integer>();
+    int count = 0;
+    int size = queue.size();
+    for (int i = 0; i < size; i++) {
+        int element = queue.remove();
+        if (element < p) {
+            queue.add(element);
+        } else {
+            count++;
+            stack.push(count);
+            stack.push(element);
+        }
+    }
+    while (!stack.isEmpty()) {
+        queue.add(stack.pop());
+    }
+    System.out.println(queue);
+    }
 }
+
+
