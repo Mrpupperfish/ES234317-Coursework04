@@ -3,9 +3,9 @@
  * ES234317 - Algorithms and Data Structures
  * Gasal | 2026-2027
  * Coursework   : 04
- * Student ID   : 
- * Full Name    : 
- * Class        : 
+ * Student ID   : 5026251164
+ * Full Name    : Desanda Verdely Yulisar
+ * Class        : C
  */
 
 import java.util.*;
